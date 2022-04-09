@@ -6,12 +6,7 @@ plugins {
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' version '2.0.0' apply false
 }
 
-dependencies {
-    classpath 'com.amplifyframework:amplify-tools-gradle-plugin:1.0.2' within the dependencies
-}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-pply plugin: 'com.amplifyframework.amplifytools'
