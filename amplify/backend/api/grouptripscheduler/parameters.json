@@ -1,5 +1,12 @@
 {
   "AppSyncApiName": "grouptripscheduler",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authgrouptripscheduleradf5edce",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2022-04-09T17:25:29.621Z"
 }

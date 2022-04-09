@@ -10,6 +10,11 @@
       "StackName": "amplify-grouptripscheduler-dev-123441",
       "StackId": "arn:aws:cloudformation:us-east-1:973164546563:stack/amplify-grouptripscheduler-dev-123441/f696a770-b822-11ec-a7fd-12330fa64467",
       "AmplifyAppId": "d3mv5fv8muanrx"
+    },
+    "categories": {
+      "auth": {
+        "grouptripscheduleradf5edce": {}
+      }
     }
   }
 }

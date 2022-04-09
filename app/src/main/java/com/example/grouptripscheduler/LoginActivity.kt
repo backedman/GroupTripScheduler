@@ -13,13 +13,13 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.grouptripscheduler.databinding.ActivityMapsBinding
+//import com.example.grouptripscheduler.databinding.ActivityMapsBinding
 
 
 class LoginActivity : AppCompatActivity(){
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsBinding
+   /////////////////////////////////// private lateinit var binding: ActivityMapsBinding
     private lateinit var Username_Input : EditText
     private lateinit var Password_Input : EditText
     private lateinit var Login : Button
@@ -49,11 +49,16 @@ class LoginActivity : AppCompatActivity(){
         Login.setOnClickListener {
             Username = Username_Input.text.toString()
             Password = Username_Input.text.toString()
-            print("You Have Clicked Login!!!")
-            /*send to database*/
+
             /*hash password*/
 
+            print("You Have Clicked Login!!!")
+            /*send to database*/
+
+
+
             /*receive from database*/
+
 
             /*verify login information*/
 

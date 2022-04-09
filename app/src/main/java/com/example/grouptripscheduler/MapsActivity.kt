@@ -1,7 +1,9 @@
 package com.example.grouptripscheduler
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 
@@ -12,6 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.grouptripscheduler.databinding.ActivityMapsBinding
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -57,5 +60,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    public fun eventBtnPress(addButton : View){
+        addButton.setOnClickListener {
+
+            /*open popup*/
+            startActivity(Intent(this@MapsActivity, EventPopupActivity::class.java))
+
+        }
     }
 }
