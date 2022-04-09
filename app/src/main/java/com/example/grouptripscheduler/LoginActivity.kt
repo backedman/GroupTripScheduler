@@ -49,11 +49,16 @@ class LoginActivity : AppCompatActivity(){
         Login.setOnClickListener {
             Username = Username_Input.text.toString()
             Password = Username_Input.text.toString()
-            print("You Have Clicked Login!!!")
-            /*send to database*/
+
             /*hash password*/
 
+            print("You Have Clicked Login!!!")
+            /*send to database*/
+
+
+
             /*receive from database*/
+
 
             /*verify login information*/
 
