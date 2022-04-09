@@ -10,4 +10,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="nearby_events">Nearby Events</string>
+    <string name="friends_button">+</string>
+    <string name="chats">Chats</string>
+    <string name="plus_button">+</string>
 </resources>
