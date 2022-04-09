@@ -1,4 +1,4 @@
-package com.example.androidgettingstarted
+package com.example.grouptripscheduler
 
 import android.graphics.Bitmap
 import android.util.Log
