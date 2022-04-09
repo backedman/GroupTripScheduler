@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GroupTripScheduler">
-
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:label="MapsActivity" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -26,9 +29,9 @@
             android:value="AIzaSyBnT5svftgxiQtdswDI_EkUr-CLet_mKEw" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps">
+            android:label="LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
