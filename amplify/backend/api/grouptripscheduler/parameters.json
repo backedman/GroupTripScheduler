@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "grouptripscheduler",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}

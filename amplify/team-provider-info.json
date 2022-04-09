@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-grouptripscheduler-dev-123441-authRole",
+      "UnauthRoleArn": "arn:aws:iam::973164546563:role/amplify-grouptripscheduler-dev-123441-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::973164546563:role/amplify-grouptripscheduler-dev-123441-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-grouptripscheduler-dev-123441-deployment",
+      "UnauthRoleName": "amplify-grouptripscheduler-dev-123441-unauthRole",
+      "StackName": "amplify-grouptripscheduler-dev-123441",
+      "StackId": "arn:aws:cloudformation:us-east-1:973164546563:stack/amplify-grouptripscheduler-dev-123441/f696a770-b822-11ec-a7fd-12330fa64467",
+      "AmplifyAppId": "d3mv5fv8muanrx"
+    }
+  }
+}
