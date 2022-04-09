@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "grouptripscheduler",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\14438\\StudioProjects\\GroupTripScheduler\\amplify\\backend\\api\\grouptripscheduler\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
