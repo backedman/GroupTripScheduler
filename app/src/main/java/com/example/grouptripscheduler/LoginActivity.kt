@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import com.amazonaws.mobile.client.internal.oauth2.OAuth2Client.TAG
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,6 +14,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 //import com.example.grouptripscheduler.databinding.ActivityMapsBinding
 
 
@@ -26,6 +29,23 @@ class LoginActivity : AppCompatActivity(){
     private lateinit var SignUp : Button
     private lateinit var Username : String
     private lateinit var Password : String
+
+    private fun setupAuthButton(userData: UserData) {
+
+        // register a click listener
+        fabAuth.setOnClickListener { view ->
+
+            val authButton = view as FloatingActionButton
+
+            if (userData.isSignedIn.value!!) {
+                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
+                Backend.signOut()
+            } else {
+                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
+                Backend.signIn(this)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +62,19 @@ class LoginActivity : AppCompatActivity(){
         /*var accessGranted = false;
     while(!accessGranted) {*/
 
+
+        setupAuthButton(UserData)
+        UserData.isSignedIn.observe(this, Observer<Boolean> { isSignedUp ->
+            // update UI
+            Log.i(TAG, "isSignedIn changed : $isSignedUp")
+
+            if (isSignedUp) {
+                fabAuth.setImageResource(R.drawable.ic_baseline_lock_open)
+            } else {
+                fabAuth.setImageResource(R.drawable.ic_baseline_lock)
+            }
+        })
+
     }
 
     public fun login(Login : View){
@@ -54,7 +87,6 @@ class LoginActivity : AppCompatActivity(){
 
             print("You Have Clicked Login!!!")
             /*send to database*/
-
 
 
             /*receive from database*/
