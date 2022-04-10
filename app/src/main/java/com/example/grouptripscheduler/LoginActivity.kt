@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import com.amazonaws.mobile.client.internal.oauth2.OAuth2Client.TAG
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+//import com.amazonaws.mobile.client.internal.oauth2.OAuth2Client.TAG
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -16,36 +18,19 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-//import com.example.grouptripscheduler.databinding.ActivityMapsBinding
+import com.example.grouptripscheduler.databinding.ActivityMapsBinding
 
 
 class LoginActivity : AppCompatActivity(){
 
     private lateinit var mMap: GoogleMap
-   /////////////////////////////////// private lateinit var binding: ActivityMapsBinding
+    private lateinit var binding: ActivityMapsBinding
     private lateinit var Username_Input : EditText
     private lateinit var Password_Input : EditText
     private lateinit var Login : Button
     private lateinit var SignUp : Button
     private lateinit var Username : String
     private lateinit var Password : String
-
-    private fun setupAuthButton(userData: UserData) {
-
-        // register a click listener
-        fabAuth.setOnClickListener { view ->
-
-            val authButton = view as FloatingActionButton
-
-            if (userData.isSignedIn.value!!) {
-                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
-                Backend.signOut()
-            } else {
-                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
-                Backend.signIn(this)
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +48,7 @@ class LoginActivity : AppCompatActivity(){
     while(!accessGranted) {*/
 
 
-        setupAuthButton(UserData)
+        /*setupAuthButton(UserData)
         UserData.isSignedIn.observe(this, Observer<Boolean> { isSignedUp ->
             // update UI
             Log.i(TAG, "isSignedIn changed : $isSignedUp")
@@ -73,15 +58,15 @@ class LoginActivity : AppCompatActivity(){
             } else {
                 fabAuth.setImageResource(R.drawable.ic_baseline_lock)
             }
-        })
+        }) */
 
     }
 
     public fun login(Login : View){
         /*if user chooses login, check if their credentials exist in database*/
         Login.setOnClickListener {
-            Username = Username_Input.text.toString()
-            Password = Username_Input.text.toString()
+            var Username = Username_Input.text.toString()
+            var Password = Username_Input.text.toString()
 
             /*hash password*/
 
@@ -95,10 +80,10 @@ class LoginActivity : AppCompatActivity(){
             /*verify login information*/
 
             /*if true */
-                /*put information into variables (like Events joined/created) */
+            /*put information into variables (like Events joined/created) */
 
-                /* go to map events page */
-                startActivity(Intent(this@LoginActivity, MapsActivity::class.java))
+            /* go to map events page */
+            startActivity(Intent(this@LoginActivity, MapsActivity::class.java))
 
 
 
@@ -116,13 +101,13 @@ class LoginActivity : AppCompatActivity(){
             Password = Username_Input.text.toString()
             print("You Have Clicked Register!!!")
             /*send to database*/
-                /*hash password*/
+            /*hash password*/
             /*receive from database*/
 
             /*verify username does not already exist*/
 
             /*if true */
-                /*put information into variables (like Events joined/created) */
+            /*put information into variables (like Events joined/created) */
 
             /* go to map events page */
             startActivity(Intent(this@LoginActivity, MapsActivity::class.java))
@@ -135,4 +120,24 @@ class LoginActivity : AppCompatActivity(){
         }
     }
 
+    private fun setupAuthButton(userData: UserData) {
+
+        // register a click listener
+        /*fabAuth.setOnClickListener { view ->
+
+            val authButton = view as FloatingActionButton
+
+            if (userData.isSignedIn.value!!) {
+                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
+                Backend.signOut()
+            } else {
+                authButton.setImageResource(R.drawable.ic_baseline_lock_open)
+                Backend.signIn(this)
+            } */
+        }
 }
+
+
+
+
+

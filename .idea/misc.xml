@@ -3,14 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/14438/StudioProjects/GroupTripScheduler/app/src/main/res/layout/login.xml" value="0.19021739130434784" />
-        <entry key="..\:/Users/14438/StudioProjects/GroupTripScheduler/app/src/main/res/layout/test.xml" value="0.19021739130434784" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout-w936dp/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_map_layout.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_maps.xml" value="0.1852355072463768" />
-        <entry key="..\:/Users/backe/AndroidStudioProjects/GroupTripScheduler/app/src/main/res/layout/login.xml" value="0.264" />
+        <entry key="..\:/Users/first/StudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_map_layout.xml" value="0.2" />
+        <entry key="..\:/Users/first/StudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_maps.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/first/StudioProjects/GroupTripScheduler/app/src/main/res/layout/add_event_popup.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/first/StudioProjects/GroupTripScheduler/app/src/main/res/layout/login.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/razor/StudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_map_layout.xml" value="0.2" />
+        <entry key="..\:/Users/razor/StudioProjects/GroupTripScheduler/app/src/main/res/layout/activity_maps.xml" value="0.33" />
+        <entry key="..\:/Users/razor/StudioProjects/GroupTripScheduler/app/src/main/res/layout/login.xml" value="0.2128623188405797" />
       </map>
     </option>
   </component>
