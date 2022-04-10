@@ -18,6 +18,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.grouptripscheduler.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.model.Marker
 import java.lang.Exception
 
 
@@ -31,7 +32,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var SignUp : Button
     private lateinit var Username : String
     private lateinit var Password : String
-    public lateinit var Events : MutableList<Event>
+    companion object {
+        var Events: MutableList<Event> = mutableListOf<Event>()
+
+        init {
+            Events.add(Event("Trip to Sydney", "10/4/22", "10/12/22",
+                "we are going to sydney uwu",
+                "Sydney", -34.0, 151.0, 10, 1))
+
+            Events.add(Event("Skii Trip", "10/12/22", "10/13/22",
+                "skii trip :O", "Liberty Mountain Resort",
+                39.763714, -77.375664, 3, 2))
+
+
+            Log.d("test", "Bruh3")
+            Events.add(Event("Canada Hiking", "8/12/22", "8/23/22",
+                "Let's visit the great beyond together!", "Ottowa",
+                45.256581, -75.764582, 2, 3))
+        }
+
+        fun addEvent(event : Event) {
+            Events.add(event)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,63 +62,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         /*sets up the map*/
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Events = mutableListOf<Event>()
 
         /*loads events*/
-        Log.d("test", "Bruh1")
-        Events.add(Event("Trip to Sydney", "10/4/22", "10/12/22",
-            "we are going to sydney uwu",
-            "Sydney", -34.0, 151.0, 10, 1))
-        Log.d("test", Events[0].eventTitle)
+        print("Bruh")
 
-        Log.d("test", "Bruh2")
-        addEvent("Skii Trip", "10/12/22", "10/13/22",
-            "skii trip :O", "Liberty Mountain Resort",
-            3, 2)?.let {
-            Events.add(
-                it
-            )
-        }
-        Log.d("test", Events.size.toString())
-
-        Log.d("test", "Bruh3")
-        addEvent("Canada Hiking", "8/12/22", "8/23/22",
-            "Let's visit the great beyond together!", "Ontario",
-            5, 2)?.let {
-            Events.add(
-                it
-            )
-        }
-        Log.d("test", Events.size.toString())
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-
     }
 
-    private fun addEvent(title : String, date1: String, date2: String,
-                               description: String, address : String, max : Int, curr : Int) : Event? {
-
-        var listgeocoder: MutableList<Address>? = null
-        try {
-            listgeocoder =
-                Geocoder(this@MapsActivity).getFromLocationName(address, 1)
-        }
-        catch(e : Exception){
-            /*error message*/
-            Log.d("test", "ERROR")
-        }
-
-        if (listgeocoder != null) {
-            return Event(title, date1, date2, description, address,
-                listgeocoder.get(0).latitude, listgeocoder.get(0).longitude, 3, 1)
-        }
-
-        return null
-
-    }
 
     /**
      * Manipulates the map once available.
@@ -114,23 +91,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             openPopUp(it)
         }
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+
+
+
+        var markers : HashMap<Marker, Event> = hashMapOf<Marker, Event>()
         for (event in Events) {
             val eventPos = LatLng(event.Latitude, event.Longitude)
-            mMap.addMarker(MarkerOptions().position(eventPos).title(event.eventTitle))
+            var marker : Marker = mMap.addMarker(MarkerOptions().position(eventPos).title(event.eventTitle))
+            markers.put(marker, event)
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-    }
 
-    public fun eventBtnPress(addButton : View){
-        addButton.setOnClickListener {
-
-            /*open popup*/
-            startActivity(Intent(this@MapsActivity, EventPopupActivity::class.java))
-
+        mMap.setOnMarkerClickListener { marker : Marker ->
+            var i = Intent(this@MapsActivity, EventPopupActivity::class.java)
+            i.putExtra("event", markers.get(marker) as Bundle?)
+            startActivity(i)
+            true
         }
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(Events[0].Latitude, Events[0].Longitude)))
+
+
+
     }
 
 
@@ -141,9 +122,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         Log.d("test","here2")
         var i = Intent(this@MapsActivity, EventPopupActivity::class.java)
         Log.d("test","here3")
-        //i.putExtra("location", Point)
+        i.putExtra("location", Point)
         startActivity(i)
-
 
     }
 }
+

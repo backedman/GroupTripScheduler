@@ -1,5 +1,6 @@
 package com.example.grouptripscheduler
 
+import android.content.Intent
 import android.icu.text.CaseMap
 import android.location.Address
 import android.location.Geocoder
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.textview.MaterialTextView
 import java.lang.Exception
+import kotlin.properties.Delegates
 
 class EventPopupActivity : AppCompatActivity(){
 
@@ -24,7 +26,8 @@ class EventPopupActivity : AppCompatActivity(){
     private lateinit var TextDescription : EditText
     private lateinit var TextLocation : EditText
     private lateinit var latlong : LatLng
-
+    private var Latitude by Delegates.notNull<Double>()
+    private var Longitude by Delegates.notNull<Double>()
 
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -35,8 +38,6 @@ class EventPopupActivity : AppCompatActivity(){
         Log.d("test", "here5")
 
         var extras = getIntent().extras
-        var Latitude : Double? = null
-        var Longitude : Double? = null
 
         Log.d("test", "here6")
 
@@ -45,13 +46,17 @@ class EventPopupActivity : AppCompatActivity(){
             Latitude = latlong.latitude
             Longitude = latlong.longitude
         }
+        else{
+            Latitude = 0.0
+            Longitude = 0.0
+        }
 
         TextTitle = findViewById(R.id.editTextTitle)
         TextDate1 = findViewById(R.id.editTextDate)
         TextDate2 = findViewById(R.id.editTextDate2)
         TextMaxPeople = findViewById(R.id.maxPeople)
-        //TextDescription = findViewById(R.id.description)
-        //TextLocation = findViewById(R.id.location)
+        TextDescription = findViewById(R.id.description)
+        TextLocation = findViewById(R.id.location)
 
     }
 
@@ -60,11 +65,12 @@ class EventPopupActivity : AppCompatActivity(){
         eventBtn.setOnClickListener{
 
             var title = TextTitle.text.toString()
-            /*var date1 = TextDate1.text.toString()
+            var date1 = TextDate1.text.toString()
             var date2 = TextDate2.text.toString()
             var description = TextDescription.toString()
             var location = TextLocation.toString()
             var max = 0
+
             try {
                 max = TextMaxPeople.text.toString().toInt()
             }
@@ -74,34 +80,34 @@ class EventPopupActivity : AppCompatActivity(){
 
             if(title.isEmpty()){
                 /*add error message*/
+                Log.d("test","no title")
             }
             else if(date1.isEmpty()){
                 /*add error message*/
+                Log.d("test","no date1")
             }
             else if(date2.isEmpty()){
                 /*add error message*/
+                Log.d("test","no date2")
             }
             else if(description.isEmpty()){
-
+                Log.d("test","no description")
             }
             else if(location.isEmpty()){
-
+                Log.d("test","no location")
             }
             else{
-                var listgeocoder: MutableList<Address>? = null
-                try {
-                    listgeocoder =
-                        Geocoder(this@EventPopupActivity).getFromLocationName(location, 1)
-                }
-                catch(e : Exception){
-                    /*error message*/
-                }
 
-                if (listgeocoder != null) {
-                    Event(title, date1, date2, description, location,
-                        listgeocoder.get(0).latitude, listgeocoder.get(0).longitude, max, 0)
-                }
-            } */
+                Log.d("test","here2")
+
+                var i = Intent(this@EventPopupActivity, MapsActivity::class.java)
+                var event : Event = Event(title, date1, date2, description, location,
+                    Latitude, Longitude, max, 0)
+                MapsActivity.Events.add(event)
+                startActivity(i)
+
+
+            }
 
 
 

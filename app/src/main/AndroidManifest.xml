@@ -11,6 +11,7 @@
         android:theme="@style/Theme.GroupTripScheduler"
         android:usesCleartextTraffic="true">
 
+
         <activity
             android:name=".EventPopupActivity"
             android:exported="false"
