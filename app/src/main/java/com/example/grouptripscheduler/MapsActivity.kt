@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -36,6 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         /*sets up the map*/
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
