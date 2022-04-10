@@ -3,6 +3,7 @@ package com.example.grouptripscheduler
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity(){
 
             /*hash password*/
 
-            print("You Have Clicked Login!!!")
+            Log.d("test", "You Have Clicked Login!!!")
             /*send to database*/
 
 

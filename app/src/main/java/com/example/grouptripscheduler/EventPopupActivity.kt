@@ -5,11 +5,14 @@ import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.textview.MaterialTextView
 import java.lang.Exception
 
 class EventPopupActivity : AppCompatActivity(){
@@ -20,17 +23,35 @@ class EventPopupActivity : AppCompatActivity(){
     private lateinit var TextMaxPeople : EditText
     private lateinit var TextDescription : EditText
     private lateinit var TextLocation : EditText
+    private lateinit var latlong : LatLng
+
 
 
     override fun onCreate(savedInstanceState: Bundle?){
+
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.add_event_popup)
+
+        Log.d("test", "here5")
+
+        var extras = getIntent().extras
+        var Latitude : Double? = null
+        var Longitude : Double? = null
+
+        Log.d("test", "here6")
+
+        if(extras != null) {
+            var latlong : LatLng = extras.get("location") as LatLng
+            Latitude = latlong.latitude
+            Longitude = latlong.longitude
+        }
 
         TextTitle = findViewById(R.id.editTextTitle)
         TextDate1 = findViewById(R.id.editTextDate)
         TextDate2 = findViewById(R.id.editTextDate2)
         TextMaxPeople = findViewById(R.id.maxPeople)
-        TextDescription = findViewById(R.id.description)
-        TextLocation = findViewById(R.id.location)
+        //TextDescription = findViewById(R.id.description)
+        //TextLocation = findViewById(R.id.location)
 
     }
 
@@ -39,7 +60,7 @@ class EventPopupActivity : AppCompatActivity(){
         eventBtn.setOnClickListener{
 
             var title = TextTitle.text.toString()
-            var date1 = TextDate1.text.toString()
+            /*var date1 = TextDate1.text.toString()
             var date2 = TextDate2.text.toString()
             var description = TextDescription.toString()
             var location = TextLocation.toString()
@@ -80,7 +101,7 @@ class EventPopupActivity : AppCompatActivity(){
                     Event(title, date1, date2, description, location,
                         listgeocoder.get(0).latitude, listgeocoder.get(0).longitude, max, 0)
                 }
-            }
+            } */
 
 
 

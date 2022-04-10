@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".EventPopupActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,7 +29,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:text="Title"
         app:layout_constraintBottom_toTopOf="@+id/maxPeople"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +46,7 @@
         android:layout_marginTop="27dp"
         android:layout_marginBottom="626dp"
         android:ems="10"
-        android:inputType="date"
+        android:inputType="textEmailAddress"
         android:text="Date 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextTitle"
@@ -60,7 +62,7 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="626dp"
         android:ems="10"
-        android:inputType="date"
+        android:inputType="textEmailAddress"
         android:text="Date 2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +75,7 @@
         android:layout_width="106dp"
         android:layout_height="54dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="textEmailAddress"
         android:text="Max People"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.193" />
 
-    <TextView
+    <EditText
         android:id="@+id/description"
         android:layout_width="388dp"
         android:layout_height="240dp"
@@ -91,18 +93,20 @@
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="132dp"
         android:text="Description"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/eventBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
-    <TextView
+    <EditText
         android:id="@+id/location"
         android:layout_width="385dp"
         android:layout_height="22dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="19dp"
+        android:inputType="textEmailAddress"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:text="Location"

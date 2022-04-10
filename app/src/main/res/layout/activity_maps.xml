@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity">
 
+
     <Button
         android:id="@+id/Plus"
         android:layout_width="147dp"
@@ -20,6 +21,7 @@
         android:text="@string/plus_button"
         android:textSize="34sp"
         app:cornerRadius="100dp"
+        android:onClick="eventBtnPress"
 
         app:iconTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"

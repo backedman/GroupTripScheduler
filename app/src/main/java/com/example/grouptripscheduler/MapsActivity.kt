@@ -5,6 +5,7 @@ import android.location.Address
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -41,13 +42,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         Events = mutableListOf<Event>()
 
         /*loads events*/
-        print("Bruh")
+        Log.d("test", "Bruh1")
         Events.add(Event("Trip to Sydney", "10/4/22", "10/12/22",
             "we are going to sydney uwu",
             "Sydney", -34.0, 151.0, 10, 1))
+        Log.d("test", Events[0].eventTitle)
 
-
-
+        Log.d("test", "Bruh2")
         addEvent("Skii Trip", "10/12/22", "10/13/22",
             "skii trip :O", "Liberty Mountain Resort",
             3, 2)?.let {
@@ -55,7 +56,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 it
             )
         }
+        Log.d("test", Events.size.toString())
 
+        Log.d("test", "Bruh3")
         addEvent("Canada Hiking", "8/12/22", "8/23/22",
             "Let's visit the great beyond together!", "Ontario",
             5, 2)?.let {
@@ -63,11 +66,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 it
             )
         }
-
+        Log.d("test", Events.size.toString())
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
 
     }
 
@@ -81,6 +85,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         catch(e : Exception){
             /*error message*/
+            Log.d("test", "ERROR")
         }
 
         if (listgeocoder != null) {
@@ -104,9 +109,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        mMap.setOnMapLongClickListener{
+            Log.d("test", "here1")
+            openPopUp(it)
+        }
+
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        for (event in Events) {
+            val eventPos = LatLng(event.Latitude, event.Longitude)
+            mMap.addMarker(MarkerOptions().position(eventPos).title(event.eventTitle))
+        }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
@@ -117,5 +131,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             startActivity(Intent(this@MapsActivity, EventPopupActivity::class.java))
 
         }
+    }
+
+
+
+    private fun openPopUp(Point : LatLng){
+
+        /*open popup*/
+        Log.d("test","here2")
+        var i = Intent(this@MapsActivity, EventPopupActivity::class.java)
+        Log.d("test","here3")
+        //i.putExtra("location", Point)
+        startActivity(i)
+
+
     }
 }

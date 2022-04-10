@@ -8,7 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GroupTripScheduler">
+        android:theme="@style/Theme.GroupTripScheduler"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".EventPopupActivity"
+            android:exported="false"
+            android:label="Event Popup"
+            android:theme="@style/Theme.GroupTripScheduler.NoActionBar" />
         <activity
             android:name=".MapsActivity"
             android:exported="false"
